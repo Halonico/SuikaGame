@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bdo8qh5vbn363"]
 
 [ext_resource type="Script" path="res://scripts/Basket.cs" id="1_46qjv"]
-[ext_resource type="Texture2D" uid="uid://deuu0dx20a4p1" path="res://assets/box.png" id="1_h3ill"]
+[ext_resource type="Texture2D" uid="uid://cmm27dpr61tqd" path="res://assets/box.png" id="1_h3ill"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08w37"]
 size = Vector2(30, 2334.5)

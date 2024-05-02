@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7l7sxiyucmn"]
 
-[ext_resource type="Texture2D" uid="uid://boeisrslypjlk" path="res://assets/background.jpg" id="1_idjy7"]
+[ext_resource type="Texture2D" uid="uid://cvw0t66hxps03" path="res://assets/background.jpg" id="1_idjy7"]
 [ext_resource type="PackedScene" uid="uid://bdo8qh5vbn363" path="res://scenes/Basket.tscn" id="2_gopwb"]
 [ext_resource type="PackedScene" uid="uid://53vqse21vvfi" path="res://scenes/Player.tscn" id="3_hhatp"]
-[ext_resource type="Texture2D" uid="uid://b4lvc27wmgjp2" path="res://assets/cherry.png" id="4_ckcqb"]
+[ext_resource type="Texture2D" uid="uid://cf53flkwuopp6" path="res://assets/cherry.png" id="4_ckcqb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hq3kp"]
 font_size = 30
