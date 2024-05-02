@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7l7sxiyucmn"]
+
+[ext_resource type="Texture2D" uid="uid://boeisrslypjlk" path="res://assets/background.jpg" id="1_idjy7"]
+[ext_resource type="PackedScene" uid="uid://bdo8qh5vbn363" path="res://scenes/Basket.tscn" id="2_gopwb"]
+[ext_resource type="PackedScene" uid="uid://53vqse21vvfi" path="res://scenes/Player.tscn" id="3_hhatp"]
+[ext_resource type="Texture2D" uid="uid://b4lvc27wmgjp2" path="res://assets/cherry.png" id="4_ckcqb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hq3kp"]
+font_size = 30
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ws6jv"]
+font_size = 60
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(196, -185)
+texture = ExtResource("1_idjy7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="CenteredArea" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Basket" parent="HBoxContainer/CenteredArea" instance=ExtResource("2_gopwb")]
+position = Vector2(-2, 379)
+scale = Vector2(0.24, 0.24)
+
+[node name="Player" parent="HBoxContainer/CenteredArea" instance=ExtResource("3_hhatp")]
+position = Vector2(-3.99998, 146)
+scale = Vector2(0.08, 0.08)
+
+[node name="ScoreControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="ScoreControl"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 56.0
+offset_bottom = 58.0
+text = "0"
+label_settings = SubResource("LabelSettings_hq3kp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FruitControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="FruitSprite" type="Sprite2D" parent="FruitControl"]
+position = Vector2(0, 38)
+scale = Vector2(0.210938, 0.210938)
+texture = ExtResource("4_ckcqb")
+
+[node name="EndBox" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.355314, 0.355314, 0.355314, 1)
+
+[node name="EndScoreLabel" type="Label" parent="EndBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 105.0
+offset_bottom = -427.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0	"
+label_settings = SubResource("LabelSettings_ws6jv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="EndBox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 274.0
+offset_right = -40.0
+offset_bottom = -276.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+
+[connection signal="OnTopCollision" from="HBoxContainer/CenteredArea/Basket" to="HBoxContainer/CenteredArea/Player" method="OnTopCollision"]
+[connection signal="pressed" from="EndBox/Button" to="HBoxContainer/CenteredArea/Player" method="Restart"]

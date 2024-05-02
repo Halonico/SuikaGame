@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdo8qh5vbn363"]
+
+[ext_resource type="Script" path="res://scripts/Basket.cs" id="1_46qjv"]
+[ext_resource type="Texture2D" uid="uid://deuu0dx20a4p1" path="res://assets/box.png" id="1_h3ill"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08w37"]
+size = Vector2(30, 2334.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txden"]
+size = Vector2(1220, 30)
+
+[node name="Basket" type="Node2D"]
+script = ExtResource("1_46qjv")
+
+[node name="Box" type="Sprite2D" parent="."]
+texture = ExtResource("1_h3ill")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="LeftCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-625, -87.5)
+shape = SubResource("RectangleShape2D_08w37")
+
+[node name="RightCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(625, -87.25)
+shape = SubResource("RectangleShape2D_08w37")
+
+[node name="BottomCollision" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 1065)
+shape = SubResource("RectangleShape2D_txden")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="TopCollision" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -871)
+shape = SubResource("RectangleShape2D_txden")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

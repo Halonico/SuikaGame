@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://53vqse21vvfi"]
+
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_8dqgo"]
+[ext_resource type="Texture2D" uid="uid://clyqp7shb0psu" path="res://assets/cloud.png" id="1_e4cuy"]
+[ext_resource type="Texture2D" uid="uid://b4lvc27wmgjp2" path="res://assets/cherry.png" id="2_asnqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hdcm"]
+size = Vector2(482, 496)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_8dqgo")
+
+[node name="Cloud" type="Sprite2D" parent="."]
+texture = ExtResource("1_e4cuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3hdcm")
+
+[node name="Fruit" type="Sprite2D" parent="."]
+position = Vector2(-10, 245)
+scale = Vector2(2.1875, 2.1875)
+texture = ExtResource("2_asnqt")
